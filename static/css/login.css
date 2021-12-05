@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+/* main body */
+body {
+  font-family: 'Gilda Display' ;
+  margin: 0% ;
+  background-color: #10101E;
+}
+
+/* header */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+li {
+  float: left;
+}
+/* GRAND HOTEL */
+.heading{
+  -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+  color:white; 
+  margin-left: 20px; 
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+/* date and time */
+.datetime{
+  color: #fff;
+  width: 200px;
+  padding: 15px 10px;
+  transition: 0.5s;
+  transition-property: background, box-shadow;
+}
+.datetime:hover{
+  background: rgba(85, 85, 85, 0.301);
+  box-shadow: 0 0 30px rgb(0, 0, 0);
+}
+.date{
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+.time{
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.time span:not(:last-child){
+  position: relative;
+  margin: 0 6px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+.time span:last-child{
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+/* navigation bar*/
+.tablink {
+  background-color: rgba(85, 85, 85, 0.301);
+  border: 3px solid rgba(85, 85, 85, 0.301);
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  font-family: 'Gilda Display' ;
+  transition: .5s ease;
+}
+.tablink:hover {
+  background-color: rgba(85, 85, 85, 0.601);
+  box-shadow: 0 0 10px black;
+}
+.tabcontent {
+  height:400px;
+  color: white;
+  display: none;
+  text-align: center;
+  padding-top: 48px;
+}
+
+/* box */
+.box{
+  position: relative;
+  width: 100%;
+  height:700px;
+}
+img{
+  width:100%;
+  height: 700px;
+}
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #ffffff2a;
+  color:white;
+  width: 40%;
+  height: 320px;
+  transition: 1s;
+  border-radius: 6px;
+  padding: 20px;
+}
+.container:hover {
+  box-shadow: 0 0 20px #0000007a;
+  background-color: #f2f2f2;
+  color: black;
+} 
+.title{
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+input[type=text] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-shadow: 0 0 5px black;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-weight: bold;
+
+}
+input:focus, input[type=password]:focus{
+  outline: none;
+  border-style: solid;
+  box-shadow:0 0 20px #10101E;
+}
+input[type=password] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-shadow: 0 0 5px black;
+}
+input[type=submit] {
+  background-color: #10101E;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  width: 100%;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-family: 'Gilda Display';
+  transition: .5s ease;
+  border-radius: 4px;
+}
+input[type=submit]:hover {
+  background-color: rgba(85, 85, 85, 0.801);
+  box-shadow: 0 0 10px black;
+}  

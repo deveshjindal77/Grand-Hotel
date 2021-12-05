@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* html */
+  html {
+    height: 100%;
+  } 
+  
+  /* main body */
+  body {
+    font-family: 'Gilda Display' ;
+    margin: 0% ;
+    background-color: #10101E;
+    height: 100%;
+  }
+  
+  /* header */
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  li {
+    float: left;
+  }
+  
+  /* GRAND HOTEL */
+  .heading{
+    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+    color:white; 
+    margin-left: 20px; 
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+  
+  /* date and time */
+  .datetime{
+    color: #fff;
+    width: 200px;
+    padding: 15px 10px;
+    transition: 0.5s;
+    transition-property: background, box-shadow;
+  }
+  .datetime:hover{
+    background: rgba(85, 85, 85, 0.301);
+    box-shadow: 0 0 30px rgb(0, 0, 0);
+  }
+  .date{
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  .time{
+    font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .time span:not(:last-child){
+    position: relative;
+    margin: 0 6px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 3px;
+  }
+  .time span:last-child{
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+  
+  /* Tab Menu */
+  .tm-nav{
+    width: 100%;
+    background: rgba(85, 85, 85, 0.301);
+    display: block;
+    font-family: 'Gilda Display'; 
+  }
+  .tm{
+      width: 100%;
+  }
+  .tm-list{
+    text-align:center;
+    width: 16.66%;
+    font-size: 17px;
+    transition: 0.5s ease;
+  }
+  .tm-list:hover{
+    background-color: rgba(85, 85, 85, 0.601);
+    box-shadow: 0 0 10px black;
+  }          
+  .tm-nav div ul li a{
+    text-decoration: none;
+    color: #fff;
+    line-height: 50px; 
+  }
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(85, 85, 85, 0.301);
+    z-index:10;
+  }
+  
+   /* After navigation bar */
+  .row{
+    width:100%;
+    display: block;
+    margin-top: 50px;
+    position:relative;
+    margin-bottom:50px;
+    padding-bottom: 350px;
+  }
+  
+  /* close button */
+  .closebtn{
+    float:right;
+    margin-right:13%; 
+    color: white; 
+    font-size: 40px;
+    cursor: pointer;
+    transition:1s;
+  }
+  .closebtn:hover{
+    background-color: #555;
+  }
+  .tabName{
+    float:left;
+    width: 33.33%;
+    text-align: center;
+    height:340px;
+    font-display: block ;
+    display: flex;
+    justify-content: center;
+  }
+  img{
+    height:300px;
+    width:100%;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px ;
+    border-bottom-right-radius: 0px;
+  }
+  .column{
+    width:60%;
+    transition: 1s ease;
+    border-radius: 10px;
+  }
+  .bottom{
+    height:40px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: black;
+  }
+  .column:hover{
+    transform: scale(1.14);
+    box-shadow: 10px -10px  rgba(85, 85, 85);
+    border-radius: 10px;
+    opacity: 0.8;
+  }
+  
+  /* form */
+  .container{
+    width: 100%;
+    display:flex;
+    align-content: center;
+    margin-top: 40px;
+  }
+  form{
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    width: 75%;
+    background-color: rgba(85, 85, 85, 0.288);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+  }
+  .formheading{
+    text-align: center;
+    padding: 20px;
+    text-transform: none;
+  }
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+  }
+  input[type=text], input[type=password], textarea, input[type=date]{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border-radius: 3px;
+    background: #f1f1f1;
+    transition: 0.5s ease;
+  }
+  .status{
+    padding: 10px;
+    margin: 10px 20px 12px 0;
+  }
+  .status-box{
+    margin:0 0 20px 0;
+  } 
+  input[type=text]:focus, input[type=password]:focus, textarea:focus, input[type=date]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+   
+  /* Set a style for the submit button */
+  .registerbtn {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    transition:1s ease;
+    font-size: 18px ;
+    font-family: "Gilda Display";
+  } 
+  .registerbtn:hover {
+    opacity: 1;
+    background-color: #10101E ;
+  }
+  /* password validation */
+  .alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    visibility: hidden;
+  }
+  .closebutton {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .closebutton:hover {
+    color: black;
+  }
+  select {
+    /* Reset Select */
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: #fff;
+    background-color: rgba(85, 85, 85, 0.601);
+    background-image: none;
+    cursor: pointer;
+    font-family: 'Gilda Display';
+    /* font-weight: bold; */
+    font-size: 15px;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .custom-select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 50px;
+    overflow: hidden;
+  }
+  /* Arrow */
+  .custom-select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: rgba(85, 85, 85, 0.601);
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  /* Transition */
+  .custom-select:hover::after {
+    color: #10101E;
+  }
+  
+  #guest_adults,#number_of_rooms, #guest_child{
+        height: 50px;
+        appearance: none;
+        outline: 0;
+        border: 0;
+        box-shadow: none;
+        flex: 1;
+        padding: 0 1em;
+        color: black;
+        background-color: white;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+  #ID_proof{
+      margin-bottom: 20px;
+  }

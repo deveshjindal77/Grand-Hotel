@@ -1,0 +1,161 @@
+head
+  script(type='text/javascript' src='../static/js/jquery-2.1.4.min.js')
+  script(type='text/javascript' src='../static/js/underscore-min.js')
+  script(type='text/javascript' src='../static/js/backbone.js')
+  
+  link(rel='stylesheet' type='text/css' href='../static/css/bootstrap.css')
+  link(rel='stylesheet' type='text/css' href='../static/css/prima.css')
+body(onload='initClock()')
+title
+  | Room Reservation
+body
+  div
+    ul
+      li
+        h1.heading GRAND HOTEL
+      li(style='float:right')
+        .datetime
+          .date
+            span#dayname Day
+            |, 
+            span#month Month
+            |, 
+            span#daynum 00
+            | 
+            span#year Year
+          .time
+            span#hour 00
+            |  :
+            span#minutes 00
+            |  :
+            span#seconds 00
+            span#period AM
+  nav.tm-nav
+    #navbar.tm
+      ul
+        li.tm-list 
+          a(href='Re_home') Home
+        li.tm-list
+          a(href='Re_room_booking') Room Booking
+        li.tm-list
+          a(href='Re_rooms') Rooms
+        li.tm-list
+          a(href='Re_employee_registration') Register Employees
+        li.tm-list
+          a(href='Re_contact_employees') Contact Staff
+        li.tm-list
+          a(href='Re_account') Account
+.text-center
+  label#title ROOM RESERVATION
+form.form-inline.selectionForm
+  .form-group.required
+    label(for='name') Name:  
+    input#name.form-control(type='text' placeholder='Jane Doe' required='required')
+  .form-group.required
+    label(for='seats') Number of Rooms:  
+    input#seats.form-control(type='number' placeholder='3' required='required')
+  .text-center
+    button#submitSelection.btn.btn-primary.btn-lg.submitBtn(type='button') Start Selecting
+  .text-center
+    font(color='Red')
+      label.error
+.screen-ui
+  #screen
+    font(color='white') 
+  table#table-screen.table
+    thead#screen-head
+      tr
+        script#table-screen-header(type='text/template').
+          <% _.each(_.range(0,columns+1),function(item){ %>
+          <% if(item==0) {%>
+          <th></th>
+          <% } else {%>
+          <th><%= item %></th>
+          <% } %>
+          <% }) %>
+    tbody#screen-body
+      script#table-screen-body(type='text/template').
+        <% _.each(rows,function(row){ %>
+        <tr id='table-screen-row'>
+        <td><%=row%></td>
+        <% _.each(_.range(1,columns+1),function(column){ %>
+        <% var id=(_.indexOf(rows,row)*columns)+column; var reservedSeats=JSON.parse(localStorage.getItem('ReservedSeats')); if(reservedSeats!=null && _.indexOf(reservedSeats,String(id))!=-1) {%>
+        <td><img src="../static/images/reserved-seat.png" class="reserved-seat" id="<%=id%>"/></td>
+        <% }else {%>
+        <td><img src="../static/images/empty-seat.png" class="empty-seat" id="<%=id%>"/></td>
+        <% }}) %>
+        </tr>
+        <% }) %>
+  .text-center
+    button#confirmSelection.btn.btn-primary.btn-lg.submitBtn(type='button') Confirm Selection
+    .screen-map
+      label(for='empty-seat-map') Selected Room
+      img#booked-seat-map.booked-seat-map(src='../static/images/booked-seat.png')
+      br
+      label(for='') Reserved Room
+      img#reserved-seat-map.reserved-seat-map(src='../static/images/reserved-seat.png')
+      br
+      label(for='') Empty Room
+      img#empty-seat-map.empty-seat-map(src='../static/images/empty-seat.png')
+.table-responsive
+  table.table.table-bordered
+    thead
+      tr
+        th Name
+        th Number of Rooms
+        th Rooms
+    tbody#ticket-sold-info
+      script#table-ticket-info(type='text/template').
+        <% _.each(items,function(item){%>
+        <tr>
+        <td><%-item.names%></td>
+        <td><%-item.numbers%></td>
+        <td><%-item.seats%></td>
+        </tr>
+        <%})%>
+script(type='text/javascript' src='../static/js/prima.js')
+script.
+  function updateClock(){
+  var now = new Date();
+  var dname = now.getDay(),
+  mo = now.getMonth(),
+  dnum = now.getDate(),
+  yr = now.getFullYear(),
+  hou = now.getHours(),
+  min = now.getMinutes(),
+  sec = now.getSeconds(),
+  pe = "AM";
+  if(hou >= 12){
+  pe = "PM";
+  }
+  if(hou == 0){
+  hou = 12;
+  }
+  if(hou > 12){
+  hou = hou - 12;
+  }
+  Number.prototype.pad = function(digits){
+  for(var n = this.toString(); n.length < digits; n = 0 + n);
+  return n;
+  }
+  var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+  var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+  var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+  for(var i = 0; i < ids.length; i++)
+  document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+  }
+  function initClock(){
+  updateClock();
+  window.setInterval("updateClock()", 1);
+  }
+  window.onscroll = function() {myFunction()};
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  function myFunction() {
+  if (window.pageYOffset >= sticky) {
+  navbar.classList.add("sticky")
+  } else {
+  navbar.classList.remove("sticky");
+  }
+  } 

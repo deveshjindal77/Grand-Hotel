@@ -1,0 +1,170 @@
+* {
+	box-sizing: border-box;
+  }
+  
+  /* html */
+  html {
+	height: 100%;
+  } 
+  
+  /* main body */
+  body {
+	font-family: 'Gilda Display' ;
+	margin: 0% ;
+	background-color: #10101E;
+	height: 100%;
+	color: white;
+  }
+  
+  /* header */
+  ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+  }
+  li {
+	float: left;
+  }
+  
+  /* GRAND HOTEL */
+  .heading{
+	-webkit-box-reflect: below -12px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+	color:white; 
+	margin-left: 20px; 
+	letter-spacing: 6px;
+	text-transform: uppercase;
+  }
+  
+  /* date and time */
+  .datetime{
+	color: #fff;
+	width: 200px;
+	padding: 15px 10px;
+	transition: 0.5s;
+	transition-property: background, box-shadow;
+  }
+  .datetime:hover{
+	background: rgba(85, 85, 85, 0.301);
+	box-shadow: 0 0 30px rgb(0, 0, 0);
+  }
+  .date{
+	font-size: 10px;
+	font-weight: 600;
+	text-align: center;
+	letter-spacing: 3px;
+  }
+  .time{
+	font-size: 19px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  .time span:not(:last-child){
+	position: relative;
+	margin: 0 6px;
+	font-weight: 600;
+	text-align: center;
+	letter-spacing: 3px;
+  }
+  .time span:last-child{
+	font-size: 15px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0 5px;
+	border-radius: 3px;
+  }
+  
+  /* Tab Menu */
+  .tm-nav{
+	width: 100%;
+	background: rgba(85, 85, 85, 0.301);
+	display: block;
+	font-family: 'Gilda Display'; 
+  }
+  .tm{
+	  width: 100%;
+  }
+  .tm-list{
+	text-align:center;
+	width: 16.66%;
+	font-size: 17px;
+	transition: 0.5s ease;
+  }
+  .tm-list:hover{
+	background-color: rgba(85, 85, 85, 0.601);
+	box-shadow: 0 0 10px black;
+  }          
+  .tm-nav div ul li a{
+	text-decoration: none;
+	color: #fff;
+	line-height: 50px; 
+  }
+  .sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background-color: rgba(85, 85, 85, 0.301);
+	z-index:10;
+  } 
+  .submitBtn{
+	margin-top:50px;
+	background-color: rgba(85, 85, 85, 0.301);
+	border-radius: 0;
+	border: none;
+}
+
+.submitBtn:hover{
+	background-color: rgba(85, 85, 85, 0.601)
+}
+.form-inline{
+	margin-top: 50px;
+}
+.form-group{
+	margin-left:260px;
+}
+.table-responsive{
+	margin-top: 50px;
+}
+#title{
+	font-size: 20px;
+	margin-top: 50px;
+	color: white;
+}
+#screen{
+	width:91%;
+	border:1px solid #000;
+	text-align: center;
+	margin-left: 7%;
+	margin-top: 50px;
+	background-color: #7662FC;
+}
+#table-screen{
+	margin-top: 50px;
+	margin-left:50px;
+	border-spacing: 10px;
+  	border-collapse: separate;
+}
+#table-screen-row{
+	margin-top:10px;
+}
+.screen-map{
+	margin-left: 50%;
+	margin-top:-50px;
+}
+.reserved-seat{
+	margin-left:4px;
+}
+.empty-seat{
+	cursor: pointer;
+}
+.booked-seat{
+	cursor: pointer;
+	content: url('../img/booked-seat.png');
+}
+.error{
+  font-size: 20px;
+  font-weight: 700;
+  font-family: monospace;
+
+}

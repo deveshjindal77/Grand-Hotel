@@ -3,7 +3,7 @@
 const express = require('express');  //npm install express
 const path = require('path');
 const connection = require('./server');
-const session = require('express-session')
+const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 const sessionStore = new MySQLStore({}, connection);
 
@@ -51,7 +51,6 @@ var currentUserId='-1';
 app.get('/', function (req, res) {
   res.status(200).render('login');
 })
-
 
 
 //Receptionist Login

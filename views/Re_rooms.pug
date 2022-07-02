@@ -1,14 +1,15 @@
+doctype html
 head
-  script(type='text/javascript' src='../static/js/jquery-2.1.4.min.js')
-  script(type='text/javascript' src='../static/js/underscore-min.js')
-  script(type='text/javascript' src='../static/js/backbone.js')
-  
-  link(rel='stylesheet' type='text/css' href='../static/css/bootstrap.css')
-  link(rel='stylesheet' type='text/css' href='../static/css/prima.css')
+  link(href='../static/css/Re_home.css' rel='stylesheet' type='text/css')
+  link(href='../static/css/swiper.css' rel='stylesheet'  type='text/css')
+  link(href='../static/css/Re_rooms.css' rel='stylesheet'  type='text/css')
+  script(src='../static/js/Receptionisthomeswiper.js')
+  link(href='https://fonts.googleapis.com/css?family=Gilda Display' rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap' rel='stylesheet')
+  meta(name='viewport' content='width=device-width, initial-scale=1') 
 body(onload='initClock()')
-title
-  | Room Reservation
-body
+  
+  
   div
     ul
       li
@@ -36,8 +37,6 @@ body
         li.tm-list 
           a(href='Re_home') Home
         li.tm-list
-          a(href='Re_room_booking') Room Booking
-        li.tm-list
           a(href='Re_rooms') Rooms
         li.tm-list
           a(href='Re_employee_registration') Register Employees
@@ -45,75 +44,71 @@ body
           a(href='Re_contact_employees') Contact Staff
         li.tm-list
           a(href='Re_account') Account
-.text-center
-  label#title ROOM RESERVATION
-form.form-inline.selectionForm
-  .form-group.required
-    label(for='name') Name:  
-    input#name.form-control(type='text' placeholder='Jane Doe' required='required')
-  .form-group.required
-    label(for='seats') Number of Rooms:  
-    input#seats.form-control(type='number' placeholder='3' required='required')
-  .text-center
-    button#submitSelection.btn.btn-primary.btn-lg.submitBtn(type='button') Start Selecting
-  .text-center
-    font(color='Red')
-      label.error
-.screen-ui
-  #screen
-    font(color='white') 
-  table#table-screen.table
-    thead#screen-head
-      tr
-        script#table-screen-header(type='text/template').
-          <% _.each(_.range(0,columns+1),function(item){ %>
-          <% if(item==0) {%>
-          <th></th>
-          <% } else {%>
-          <th><%= item %></th>
-          <% } %>
-          <% }) %>
-    tbody#screen-body
-      script#table-screen-body(type='text/template').
-        <% _.each(rows,function(row){ %>
-        <tr id='table-screen-row'>
-        <td><%=row%></td>
-        <% _.each(_.range(1,columns+1),function(column){ %>
-        <% var id=(_.indexOf(rows,row)*columns)+column; var reservedSeats=JSON.parse(localStorage.getItem('ReservedSeats')); if(reservedSeats!=null && _.indexOf(reservedSeats,String(id))!=-1) {%>
-        <td><img src="../static/images/reserved-seat.png" class="reserved-seat" id="<%=id%>"/></td>
-        <% }else {%>
-        <td><img src="../static/images/empty-seat.png" class="empty-seat" id="<%=id%>"/></td>
-        <% }}) %>
-        </tr>
-        <% }) %>
-  .text-center
-    button#confirmSelection.btn.btn-primary.btn-lg.submitBtn(type='button') Confirm Selection
-    .screen-map
-      label(for='empty-seat-map') Selected Room
-      img#booked-seat-map.booked-seat-map(src='../static/images/booked-seat.png')
-      br
-      label(for='') Reserved Room
-      img#reserved-seat-map.reserved-seat-map(src='../static/images/reserved-seat.png')
-      br
-      label(for='') Empty Room
-      img#empty-seat-map.empty-seat-map(src='../static/images/empty-seat.png')
-.table-responsive
-  table.table.table-bordered
-    thead
-      tr
-        th Name
-        th Number of Rooms
-        th Rooms
-    tbody#ticket-sold-info
-      script#table-ticket-info(type='text/template').
-        <% _.each(items,function(item){%>
-        <tr>
-        <td><%-item.names%></td>
-        <td><%-item.numbers%></td>
-        <td><%-item.seats%></td>
-        </tr>
-        <%})%>
-script(type='text/javascript' src='../static/js/prima.js')
+
+  div
+    label(for='room_number') Number of Rooms
+    input#room_number(type='number' value='1')
+  .card
+    .image
+    .information
+  .card
+    .image
+    .information
+  .card
+    .image
+    .information
+  .card
+    .image
+    .information
+  .card
+    .image
+    .information
+  .card
+    .image
+    .information
+  input(type='submit' onclick="document.getElementById('id01').style.display='block'")
+  #id01(style='display: none')
+    .container
+      form(action='send_guest_data' method='post')
+        h1.formheading Room Booking  
+        hr
+        label(for='room_number') Room Number
+        input#room_number(type='text' placeholder='Room Number' name='room_number' required='required')
+        label(for='fname') First Name
+        input#guest_fname(type='text' placeholder='First name' name='fname' required='required')
+        br
+        label(for='lname') Last Name
+        input#guest_lname(type='text' placeholder='Last Name' name='lname' required='required')
+        br
+        label(for='address') Address
+        input#guest_address(type='text' name='address' placeholder='Address' required='required')
+        br
+        label(for='phonenumber') Phone Number
+        input#guest_phone_number(type='text' placeholder='Phone Number' name='phonenumber' required='required')
+        br
+        label(for='email') E-mail
+        input#guest_email(type='text' placeholder='Email' name='email' required='required')
+        br
+        label(for='Checkin') Check In:
+        input#checkin(type='date' name='checkin')
+        br
+        label(for='Checkout') Check Out:
+        input#checkout(type='date' name='checkout')
+        br
+        label(for='password') Password
+        input#guest_password(type='password' placeholder='Enter Password' name='password' required='required')
+        br
+        label(for='password-repeat') Confirm Password
+        input#guest_cfn_password(type='password' placeholder='Repeat Password' name='password-repeat' onkeyup='check();' required='required')
+        br
+        #message.alert
+          span.closebutton(onclick="this.parentElement.style.display='none';") &times;
+          strong Warning!
+          |  Your Password doesn&apos;t match the Previous Password
+        hr
+        button.registerbtn(type='submit') Book
+
+
 script.
   function updateClock(){
   var now = new Date();
@@ -158,4 +153,4 @@ script.
   } else {
   navbar.classList.remove("sticky");
   }
-  } 
+  }

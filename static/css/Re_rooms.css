@@ -1,16 +1,17 @@
 .card{
-  height: 250px;
-  width: 200px;
-  margin: 20px;
+  height: 335px;
+  width: 300px;
+  margin: 30px;
   background-color: white;
   display: inline-block;
+  border-radius: 10px;
 }
 
 .container{
   width: 100%;
   display:flex;
   align-content: center;
-  margin-top: 40px;
+  margin-top: 80px;
 }
 form{
   margin-left: 12.5%;
@@ -30,7 +31,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
-input[type=text], input[type=password], textarea, input[type=date]{
+input[type=text], input[type=number],input[type=password], textarea, input[type=date]{
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -46,7 +47,7 @@ input[type=text], input[type=password], textarea, input[type=date]{
 .status-box{
   margin:0 0 20px 0;
 } 
-input[type=text]:focus, input[type=password]:focus, textarea:focus, input[type=date]:focus {
+input[type=text]:focus, input[type=number], input[type=password]:focus, textarea:focus, input[type=date]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -150,4 +151,25 @@ select::-ms-expand {
     }
 #ID_proof{
     margin-bottom: 20px;
+}
+
+img{
+  width:300px;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.card-text{
+  font: 20px "Lato", sans-serif;
+  text-align: center;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+}
+
+.price-text{
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+  margin-left: 20px;
 }

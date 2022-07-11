@@ -45,33 +45,81 @@ body(onload='initClock()')
         li.tm-list
           a(href='Re_account') Account
 
-  div
-    label(for='room_number') Number of Rooms
-    input#room_number(type='number' value='1')
-  .card
-    .image
-    .information
-  .card
-    .image
-    .information
-  .card
-    .image
-    .information
-  .card
-    .image
-    .information
-  .card
-    .image
-    .information
-  .card
-    .image
-    .information
-  input(type='submit' onclick="document.getElementById('id01').style.display='block'")
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_8.jpg')
+      .card-text Standard Room
+      .price-text
+        p 1-2 Occupancy
+        p &#x20B9;3200
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_4.jpg')
+      .card-text Elite Room
+      .price-text
+        p 1-2 Occupancy
+        p &#x20B9;3999
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_1.jpg')
+      .card-text Deluxe Room
+      .price-text
+        p 1-3 Occupancy
+        p &#x20B9;4500
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_2.jpg')
+      .card-text Standard Double
+      .price-text
+        p 1-4 Occupancy
+        p &#x20B9;4000
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_3.jpg')
+      .card-text Elite Double
+      .price-text
+        p 1-4 Occupancy
+        p &#x20B9;6500
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_7.jpg')
+      .card-text Deluxe Double
+      .price-text
+        p 1-4 Occupancy
+        p &#x20B9;7500
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_6.jpg')
+      .card-text Executive Suite
+      .price-text
+        p 1-2 Occupancy
+        p &#x20B9;8200
+  a(href='#id01')
+    #card.card(onclick="document.getElementById('id01').style.display='block'")
+      .image
+        img(src='../static/Rooms_5.jpg')
+      .card-text Medieval Suite
+      .price-text
+        p 1-2 Occupancy
+        p &#x20B9;10000
+
+
+
   #id01(style='display: none')
     .container
       form(action='send_guest_data' method='post')
+        h1.formheading
         h1.formheading Room Booking  
         hr
+        label(for='number_room') Number of Rooms
+        input#number_room(type='number' placeholder='Number of Rooms' name='number_room' required='required')
         label(for='room_number') Room Number
         input#room_number(type='text' placeholder='Room Number' name='room_number' required='required')
         label(for='fname') First Name

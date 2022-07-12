@@ -85,11 +85,13 @@ app.get('/Re_home',function(req, res){
 });
 //room booking page
 app.get('/Re_room_booking',function(req, res){
-  res.status(200).render('Re_room_booking');
+  let room_id=req.query.id;
+  console.log(room_id);
+  res.status(200).render('Re_room_booking',{room_id});
 });
 app.post('/send_guest_data',function(req,res){
   let user_data=req.body;
-  connection.query("INSERT INTO guest (room_number,guest_fname,guest_lname,guest_address,guest_phone_number,guest_email,room_type,checkin,checkout,number_of_rooms,guest_adults,guest_child,ID_proof,guest_password)VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,md5(?))",[user_data.room_number,user_data.fname,user_data.lname,user_data.address,user_data.phonenumber,user_data.email,user_data.room_type,user_data.checkin,user_data.checkout,user_data.number_of_rooms,user_data.guest_adults,user_data.guest_child,user_data.ID_proof,user_data.password] ,(err, results, rows) => {
+  connection.query("INSERT INTO guest (room_id,guest_fname,guest_lname,guest_address,guest_phone_number,guest_email,checkin,checkout)VALUES(?,?,?,?,?,?,?,?)",[user_data.room_id,user_data.fname,user_data.lname,user_data.address,user_data.phonenumber,user_data.email,user_data.checkin,user_data.checkout] ,(err, results, rows) => {
     if(err) throw err;
     
     else console.log("Inserted Successfuly");
@@ -98,7 +100,26 @@ app.post('/send_guest_data',function(req,res){
   });
 //rooms page
 app.get('/Re_rooms',function(req, res){
-  res.status(200).render('Re_rooms');
+  let rooms=[];
+  res.status(200).render('Re_rooms',{rooms});
+});
+app.post('/Re_rooms',function(req, res){
+  let checkin=req.body.checkin;
+  let checkout=req.body.checkout;
+  let room_type=req.body.room_type;
+  // console.log(checkin);
+  // console.log(room_type);
+  connection.query("select* from rooms where (room_id not in (select room_id from guest where NOT (DATE(checkin)>='"+checkout+ "' or DATE(checkout)<='"+checkin+"'))) and room_type='"+room_type+"';",[],(err,results,rows)=>{
+    if(err){
+      throw err;
+    }
+    let rooms=results;
+    console.log(rooms);
+    let img=room_type;
+    img.replace(/\s/g, "");
+    res.status(200).render('Re_rooms',{rooms,img});
+  });
+  // res.send("hello");
 });
 //employee registration page
 app.get('/Re_employee_registration',function(req, res){

@@ -44,9 +44,9 @@ body(onload='initClock()')
     form(action='send_guest_data',method='post')
       h1.formheading Room Booking  
       hr
-      label(for='room_number')
+      label(for='room_id')
         |Room Number
-      input#room_number(type='text', placeholder='Room Number', name='room_number', required)
+      input#room_number(type='number', name='room_id',value=room_id, required)
       label(for='fname')
         |First Name
       input#guest_fname(type='text', placeholder='First name', name='fname', required)
@@ -67,41 +67,16 @@ body(onload='initClock()')
         |E-mail
       input#guest_email(type='text', placeholder='Email', name='email', required)
       br
-      input(type='text' name='room_type' list='room_type' placeholder="Select the Room Type")
-      datalist#room_type
-        option(value=4500) Deluxe Suite
-        option(value=6000) Premium Suite 
-        option(value=7500) Supreme Suite
-      br
       label(for='Checkin') Check In:
       input#checkin(type='date' name='checkin')
       br
       label(for='Checkout') Check Out:
       input#checkout(type='date' name='checkout')
-      br
-      input#number_of_rooms(type='number' name='number_of_rooms' min='1' max='10' placeholder="Rooms")
-      br
-      input#guest_adults(type='number' name='guest_adults' min='1' max='10' placeholder="Adults")
-      br
-      input#guest_child(type='number' name='guest_child' min='0' max='10' placeholder="Children")
-      br
-      label(for='ID_proof') ID Proof    
-      input#ID_proof(type='file' name='ID_proof' placeholder='Browse' required)
-      br
-      label(for='password')
-        |Password
-      input#guest_password(type='password', placeholder='Enter Password', name='password', required)
-      br
-      label(for='password-repeat')
-        |Confirm Password
-      input#guest_cfn_password(type='password', placeholder='Repeat Password', name='password-repeat', onkeyup='check();', required)
-      br
-      
-      #message.alert
-        span.closebutton(onclick="this.parentElement.style.display='none';") &times;
-        |  
-        strong Warning!
-        |  Your Password doesn&apos;t match the Previous Password
+      //- #message.alert
+      //-   span.closebutton(onclick="this.parentElement.style.display='none';") &times;
+      //-   |  
+      //-   strong Warning!
+      //-   |  Your Password doesn&apos;t match the Previous Password
       hr
       button.registerbtn(type='submit') Book
 // Script

@@ -38,29 +38,26 @@ rm_dob date,
 rm_status varchar(100),
 rm_password varchar(200)
 );
-
+ CREATE TABLE rooms (
+    room_id int NOT NULL,
+    room_type varchar(50) NOT NULL,
+    room_rent int ,
+    primary key(room_id)
+);
 create table guest(
  guest_fname varchar(50),
  guest_lname varchar(50),
  guest_address varchar(100),
  guest_email varchar(100),
  guest_phone_number varchar(12),
- room_type int(10),
- guest_adults int,
- guest_child int,
- room_number varchar(10),
+ room_id int,
  guest_id int primary key auto_increment,
  checkin date,
  checkout date,
- ID_proof longblob,
- guest_password varchar(100),
- number_of_rooms int
+ guest_password varchar(100) default ('81dc9bdb52d04dc20036dbd8313ed055'),
+ FOREIGN KEY (room_id) REFERENCES rooms(room_id)
  );
- 
- CREATE TABLE Rooms (
-    RoomId int NOT NULL,
-    Type varchar(50) NOT NULL,
-    guest_id int,
-    PRIMARY KEY (RoomId),
-    FOREIGN KEY (guest_id) REFERENCES guest(guest_id)
-);
+
+insert into rooms(room_id,room_type,room_rent) values(1,'standard',3200),(2,'Elite',3999),(3,'deluxe',4500),
+(4,'double standard',4000),(5,'double elite',6500),(6,'double deluxe',7500),(7,'standard',3200),(8,'Elite',3999),(9,'deluxe',4500),
+(10,'double standard',4000),(11,'double elite',6500),(12,'double deluxe',7500);

@@ -44,71 +44,98 @@ body(onload='initClock()')
           a(href='Re_contact_employees') Contact Staff
         li.tm-list
           a(href='Re_account') Account
-
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_8.jpg')
-      .card-text Standard Room
-      .price-text
-        p 1-2 Occupancy
-        p &#x20B9;3200
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_4.jpg')
-      .card-text Elite Room
-      .price-text
-        p 1-2 Occupancy
-        p &#x20B9;3999
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_1.jpg')
-      .card-text Deluxe Room
-      .price-text
-        p 1-3 Occupancy
-        p &#x20B9;4500
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_2.jpg')
-      .card-text Standard Double
-      .price-text
-        p 1-4 Occupancy
-        p &#x20B9;4000
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_3.jpg')
-      .card-text Elite Double
-      .price-text
-        p 1-4 Occupancy
-        p &#x20B9;6500
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_7.jpg')
-      .card-text Deluxe Double
-      .price-text
-        p 1-4 Occupancy
-        p &#x20B9;7500
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_6.jpg')
-      .card-text Executive Suite
-      .price-text
-        p 1-2 Occupancy
-        p &#x20B9;8200
-  a(href='#id01')
-    #card.card(onclick="document.getElementById('id01').style.display='block'")
-      .image
-        img(src='../static/Rooms_5.jpg')
-      .card-text Medieval Suite
-      .price-text
-        p 1-2 Occupancy
-        p &#x20B9;10000
+  form(method='post', action='Re_rooms')
+    label(for='room_type') Select Category:
+      select#cars(name='room_type')
+        option(value='standard') Standard
+        option(value='elite') Elite
+        option(value='deluxe') Deluxe
+        option(value='standard double') Standard Double
+        option(value='elite double') Elite Double
+        option(value='deluxe double') Deluxe Double
+    br
+    label(for='checkin') CheckIn date
+    br
+    input#lname(type='date', name='checkin')
+    br
+    label(for='checkout') CheckOut date
+    br
+    input#lname(type='date', name='checkout')
+    br
+    input(type='submit')
+  each room in rooms
+      a(href='/Re_room_booking?id='+room.room_id+'&price='+room.room_rent)
+        #card.card(onclick="document.getElementById('id01').style.display='block'")
+          .image
+            img(src='../static/'+img+'.jpg')
+          .card-text #{room.room_type}
+          .price-text
+            p 1-4 Occupancy
+            p &#x20B9;#{room.room_rent}
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_8.jpg')
+  //-     .card-text Standard Room
+  //-     .price-text
+  //-       p 1-2 Occupancy
+  //-       p &#x20B9;3200
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_4.jpg')
+  //-     .card-text Elite Room
+  //-     .price-text
+  //-       p 1-2 Occupancy
+  //-       p &#x20B9;3999
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_1.jpg')
+  //-     .card-text Deluxe Room
+  //-     .price-text
+  //-       p 1-3 Occupancy
+  //-       p &#x20B9;4500
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_2.jpg')
+  //-     .card-text Standard Double
+  //-     .price-text
+  //-       p 1-4 Occupancy
+  //-       p &#x20B9;4000
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_3.jpg')
+  //-     .card-text Elite Double
+  //-     .price-text
+  //-       p 1-4 Occupancy
+  //-       p &#x20B9;6500
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/'+img+'.jpg')
+  //-     .card-text #{room.room_type}
+  //-     .price-text
+  //-       p 1-4 Occupancy
+  //-       p &#x20B9;#{room.room_rent}
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_6.jpg')
+  //-     .card-text Executive Suite
+  //-     .price-text
+  //-       p 1-2 Occupancy
+  //-       p &#x20B9;8200
+  //- a(href='#id01')
+  //-   #card.card(onclick="document.getElementById('id01').style.display='block'")
+  //-     .image
+  //-       img(src='../static/Rooms_5.jpg')
+  //-     .card-text Medieval Suite
+  //-     .price-text
+  //-       p 1-2 Occupancy
+  //-       p &#x20B9;10000
 
 
 

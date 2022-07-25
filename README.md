@@ -1,6 +1,20 @@
 # CS257 Group Project (Hotel Management System)
 
 This is a website designed for internal functioning of a hotel. It can be used for booking purposes by the receptionist. It also provides support system and utility for the guests. From management of housekeepers to restaurant , it provides a wide range of solutions.
+##Project Screenshots
+###Landing Page
+![Screenshot (38)](https://user-images.githubusercontent.com/87379004/180840399-ccd0057c-39fa-4514-a154-21d46faff9a3.png)
+### Receptionist-Home Page
+![Screenshot (39)](https://user-images.githubusercontent.com/87379004/180840431-c7d07e6d-1947-4148-9e32-ffe61ef61511.png)
+### Register Employee
+![Screenshot (42)](https://user-images.githubusercontent.com/87379004/180840443-f48f144e-b1cf-4608-befa-7db200ea12cc.png)
+### Profile Page
+![Screenshot (43)](https://user-images.githubusercontent.com/87379004/180840446-177d84f0-6ba8-46ae-84bd-0064c647e70f.png)
+### Contact Other Employees
+![Screenshot (44)](https://user-images.githubusercontent.com/87379004/180840449-55118449-f9e4-45d4-a5d7-ed43c9769fd9.png)
+### Check For Available Rooms
+![Screenshot (45)](https://user-images.githubusercontent.com/87379004/180840451-95c3854c-3b8b-40e8-885d-5bdfa8d91e24.png)
+
 
 ## Requirements
 For development you will need Node.js and packages like nodemon, express, express-session, pug , my-sql , express-mysql-session , body-parser.

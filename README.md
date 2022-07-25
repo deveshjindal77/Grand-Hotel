@@ -2,7 +2,7 @@
 
 This is a website designed for internal functioning of a hotel. It can be used for booking purposes by the receptionist. It also provides support system and utility for the guests. From management of housekeepers to restaurant , it provides a wide range of solutions.
 ##Project Screenshots
-###Landing Page
+### Landing Page
 ![Screenshot (38)](https://user-images.githubusercontent.com/87379004/180840399-ccd0057c-39fa-4514-a154-21d46faff9a3.png)
 ### Receptionist-Home Page
 ![Screenshot (39)](https://user-images.githubusercontent.com/87379004/180840431-c7d07e6d-1947-4148-9e32-ffe61ef61511.png)
